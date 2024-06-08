@@ -1,0 +1,10 @@
+{% load bootstrap5 %}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Add inventory category</h5>
+        <form hx-post="{% url 'inventory:add_inventory_category' %}" hx-target="#modal-body" method="POST">
+            {% bootstrap_form form %}
+            <button type="submit" class="btn btn-primary">Add <button>
+        </form>
+    </div>
+</div>

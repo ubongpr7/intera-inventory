@@ -1,0 +1,53 @@
+{% load static %}
+{% load model_tags %}
+
+<ul class="e-header__navitems e-header__sidebar-md-3 e-header__sidebar-lg-2 e-pd-y-20" id="main-menu">
+
+    <li class="e-header__list">
+      <a href="/" class="e-header__link--logo e-pd-20 e-d-flex e-align-center e-justify-center">
+        <img src="{% static 'assets/dashboard/images/ease-logo.svg' %}" alt="Ease Dashboard logo">
+      </a>
+    </li>
+
+    <li class="e-header__list e-dropdown">
+      <a href="#"style="text-decoration:none;" class="e-header__link e-active e-fw-bld e-pd-20 e-d-flex e-align-center e-justify-between"
+        data-dropdown-target="submenu">
+        <span class="e-fs-14 e-d-flex e-align-center"><i
+            class="ri-dashboard-line e-mg-r-10"></i>{{ user.company.name }}{{user.profile.name }} </span>
+        <i class="ri-arrow-down-s-line"></i>
+      </a>
+      <ul class="e-dropdown__menu" id="submenu">
+
+        <li><a href="index.html" class="e-header__sublink e-d-block e-pd-x-20 e-pd-y-10 e-active">Project</a>
+        </li>
+        <li><a href="ecommerce.html" class="e-header__sublink e-d-block e-pd-x-20 e-pd-y-10">eCommerce</a>
+        </li>
+      </ul>
+    </li>
+
+    
+    <li class="e-header__list">
+          {% include 'wrapper/wrap/sidebar.html' %}
+       
+    </li>
+    {% modelview_list  user %}
+    
+    <li class="e-header__list e-header__list--employee-of-month">
+      <div class="e-card">
+        <img src="{% static 'assets/dashboard/images/employee-month.jpg' %}" alt="Employee of the month">
+        <div class="employee-details e-pd-20 e-ta-center">
+          <h4>Employee of the month</h4>
+          <h2>Casey W.</h2>
+          <span class="e-fs-12 e-tt-capitalize">Senior software engineer</span>
+        </div>
+      </div>
+    </li>
+
+    <li class="e-header__list e-pd-x-20">
+      <a href="#" class="e-btn e-d-flex e-pd-y-20">
+        <span class="e-fs-16 e-d-flex e-align-center"><i class="ri-logout-box-r-line e-mg-r-10"></i>Log
+          out</span>
+      </a>
+    </li>
+
+  </ul><!-- .e-header__navitems ends -->

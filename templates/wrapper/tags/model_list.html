@@ -1,0 +1,65 @@
+{% if user.company  %}
+
+    {% for app, models in apps_list %}
+        <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#sidebar-wrapper">
+            
+            <li>
+                <a href="#{{ app }}" class="nav-link e-fs-14 e-fw-bld link-light" data-bs-toggle="collapse">
+                    {{ app }}
+                </a>
+                <ul class="collapse nav flex-column ms-1" id="{{ app }}" data-bs-parent="#submenu1">
+                    {% for model in models %}
+                        {% if  model == 'Company'%}
+                            <li class="nav-item">
+                                <a class="nav-link e-fs-14 e-fw-bld" href="{% url 'company:company_create' user.company.encrypted_id  'customer'  %}">Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link e-fs-14 e-fw-bld" href="{% url 'company:company_create' user.company.encrypted_id  'manufacturer'  %}">Manufacture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link e-fs-14 e-fw-bld" href="{% url 'company:company_create' user.company.encrypted_id  'supplier'  %}">Suppliers</a>
+                            </li>
+                        {% else %}
+
+                            <li class="nav-item">
+                                <a class="nav-link e-fs-14 e-fw-bld" href="{% url 'common:add_item'  app.lower user.company.encrypted_id  model.lower|cut:' '  %}">{{model}}</a>
+                            </li>
+                        {%endif%}
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    {% endfor %}    
+{%elif user.profile %}
+
+    {% for app, models in apps_list %}
+        <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#sidebar-wrapper">
+            
+            <li>
+                <a href="#{{ app }}" class="nav-link e-fs-14 e-fw-bld link-light" data-bs-toggle="collapse">
+                    {{ app }}
+                </a>
+                <ul class="collapse nav flex-column ms-1" id="{{ app }}" data-bs-parent="#submenu1">
+                    {% for model in models %}
+                        {% if  model == 'Company'%}
+                            <li class="nav-item">
+                                <a class="nav-link e-fs-14 e-fw-bld" href="{% url 'company:company_create' user.profile.encrypted_id  'customer'  %}">Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link e-fs-14 e-fw-bld" href="{% url 'company:company_create' user.profile.encrypted_id  'manufacturer'  %}">Manufacture</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link e-fs-14 e-fw-bld" href="{% url 'company:company_create' user.profile.encrypted_id  'supplier'  %}">Suppliers</a>
+                            </li>
+                        {% else %}
+
+                            <li class="nav-item">
+                                <a class="nav-link e-fs-14 e-fw-bld" href="{% url 'common:add_item'  app.lower user.profile.encrypted_id  model.lower|cut:' '  %}">{{model}}</a>
+                            </li>
+                        {%endif%}
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    {% endfor %}    
+{% endif %}    

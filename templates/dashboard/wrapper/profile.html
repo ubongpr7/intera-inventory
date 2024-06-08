@@ -1,0 +1,60 @@
+{% load static %}
+<div class="e-dropdown__menu" id="profile">
+    <div class="dropdown-header e-pd-20">
+        <div class="e-d-flex e-align-center">
+
+            <div class="user-img e-mg-r-10">
+                <div  class="e-avat e-avat-50">
+                    <img src="{% static 'assets/dashboard/images/user-f-1.jpg' %}" alt="" class="e-avat__img">
+                </div>
+                
+            </div>
+            <div class="user-detail">
+                <span class="e-fs-14 e-fw-bld e-d-block">Ubong Prosper</span>
+                <span class="e-fs-12  ">Founder: Intera Inventory</span>
+            </div>
+        </div>
+    </div>
+    <ul class="dropdown-content">
+        <li class="dropdown-list">
+            <a href="#" class="e-dropdown-link e-d-flex e-pd-x-20 e-pd-y-10">
+                <i class="bi bi-gear  e-fs-14 e-mg-10"></i>
+                <span class=" e-fs-14 e-fw-bld">
+                    Account Settings 
+                </span>
+            </a>
+        </li>
+    </li>
+        
+
+
+        
+        <li class="dropdown-list">
+            <a href="#" class="e-dropdown-link e-align-center e-d-flex e-pd-x-20 e-pd-y-10">
+                <i class="ri-user-star-line e-fs-14 e-mg-10"></i>
+                <span class=" e-fs-14 e-fw-bld">
+                    Tasks
+                </span>
+            </a>
+        </li>
+        
+        <li class="dropdown-list">
+            <a href="#" class="e-dropdown-link e-d-flex e-pd-x-20 e-pd-y-10">
+                <i class="ri-user-star-line e-fs-14 e-mg-10"></i>
+                <span class=" e-fs-14 e-fw-bld">
+                    Todo
+                </span>
+            </a>
+        </li>
+        
+    </ul>
+    <div class="dropdown-footer ">
+        <a href="{% url 'account:logout' %}" class="e-dropdown-link e-d-flex e-pd-x-20 e-pd-y-10">
+            <i class="ri-user-star-line e-fs-14 e-mg-10"></i>
+            <span class=" e-fs-14 e-fw-bld">
+                Logout
+            </span>
+
+        </a>
+    </div>
+</div>

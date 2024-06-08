@@ -1,0 +1,11 @@
+{% for app, models in apps_list %}
+    {% for model in models %}
+<li class="e-header__list">
+    <a href="#{{app}}" class="e-header__link e-pd-20 e-d-flex e-align-center e-justify-between " style="text-decoration: none;">
+      <span class="e-fs-14 e-d-flex e-align-center"><i
+          class="ri-message-2-line e-mg-r-10"></i>{{ model }}</span>
+      <span class="e-bdg e-bdg-danger">678</span>
+    </a>
+  </li>
+  {% endfor %}
+  {% endfor %}

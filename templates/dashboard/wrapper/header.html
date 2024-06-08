@@ -1,0 +1,60 @@
+{% load static %}
+<header class="e-header e-header-fixed e-d-flex e-justify-between e-align-center">
+    <div class="e-container">
+        <div class="e-offset-12 e-offset-md-3 e-offset-lg-2">
+            <nav class="e-header__nav e-d-flex e-justify-between e-align-center">
+                <div class="e-header__left e-d-flex e-align-center e-mg-r-10 e-mg-0-md">
+                    <div class="e-header__mobile e-mg-r-10 e-d-none-md">
+                        <button type="button" class="e-header__mobile--trigger e-icon-btn" data-menu-target="main-menu">
+                            <i class="ri-menu-2-line e-fs-16"></i>
+                        </button>
+                    </div>
+                    <div class="e-header__form">
+                        
+                        <form class="e-form">
+                            <div class="e-form__group">
+                            <input type="text" class="e-form__input" placeholder="Search...">
+                            <i class="ri-search-line e-form__icon"></i>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- left header part ends -->
+                  {% include 'dashboard/wrapper/sidebar.html' %}
+                {% if user.is_authenticated %}
+                <div class="e-header__right e-d-flex e-align-center ">
+                    
+                    <div class="e-dropdown e-dropdown-abs-right e-d-in-flex e-mg-r-20">
+                        <button type="button" class="e-btn e-btn-secondary e-btn-sq"data-dropdown-target="settings">
+                            <i class="bi bi-gear"></i>         
+                        </button>
+                  {% include 'dashboard/wrapper/settings.html' %}
+                  
+                
+                    <div class="e-dropdown e-dropdown-abs-right e-d-in-flex e-mg-l-10">
+                        <button type="button" class="e-btn e-btn-secondary e-btn-sq"data-dropdown-target="notifications">
+                            <i class="bi bi-bell"></i>
+                            <div class="e-bdg e-bdg-danger">6</div>
+                        </button>
+                            {% include 'dashboard/wrapper/notifications.html' %}
+                    </div>
+                    
+                    <div class="e-dropdown e-dropdown-abs-right e-d-in-flex e-mg-l-10">
+                        <button type="button" class="e-avat e-avat-35"data-dropdown-target="profile">
+                        <img src="{% static 'assets/dashboard/images/user-f-1.jpg' %}" alt="" class="e-avat__img">
+                        </button>
+                            {% include 'dashboard/wrapper/profile.html' %}
+                    </div>
+                </div>
+            </nav>
+            {% else%}
+            <div class="e-d-flex">
+                <a class="nav-link e-fs-14 e-fw-bld e-d-flex" href="{% url 'account:signin' %}"> Signin</a>
+
+                <a class="nav-link e-fs-14 e-fw-bld e-d-flex" href="{% url 'account:signup' %}"> Register</a>
+            </div>
+                
+            {% endif %}
+        </div>
+    </div>
+</header>
